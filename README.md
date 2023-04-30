@@ -41,6 +41,8 @@ Here's a text file of additional words, feel free to include and use it for the 
 
 [words.txt.txt](https://github.com/elijah1108/Programming1_final_project/files/11361900/words.txt.txt)
 
+To include these words in the program, copy and paste the words you want into the vector and put double quotes around each word you include.
+
 When you run the program, it will output in the terminal of your IDE. It should look like this:
 
 ![Screenshot 2023-04-30 133125](https://user-images.githubusercontent.com/101565107/235368051-460f2294-61fe-48b8-aa23-4e2bb733c868.png)
