@@ -391,4 +391,4 @@ int main()
     return 0;
 }
 
-Feel free to use this project as a template and add any features that you wish to add.
+Feel free to use this project as a template and add any features that you wish to add. Have fun playing the game!
