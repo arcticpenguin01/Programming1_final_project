@@ -12,3 +12,8 @@ No input data is needed, as a list of words is imbedded into the program. To cha
 
 ![image](https://user-images.githubusercontent.com/101565107/235367109-243ed37b-608a-488a-b0d3-87a441f2607c.png)
 
+Here's a text file of additional words, feel free to include and use it for the program:
+
+[words.txt.txt](https://github.com/elijah1108/Programming1_final_project/files/11361900/words.txt.txt)
+
+
