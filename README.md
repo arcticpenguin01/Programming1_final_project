@@ -10,7 +10,16 @@ Once MinGW is installed, you're ready to run the main.cpp file that you download
 
 No input data is needed, as a list of words is imbedded into the program. To change this list of words, you will need to access the  "void playGame()" function of the program and manually change the words in the string vector that holds the list of words:
 
-![image](https://user-images.githubusercontent.com/101565107/235367109-243ed37b-608a-488a-b0d3-87a441f2607c.png)
+void playGame()
+{
+    int incorrectGuesses = 0;
+
+    vector<string> words = {"innovation", "stroll", "finger", "pan", "sleeve","run","frequency","justice","development","chimney","hobby","shelf",
+                            "challenge","pledge","tenant","nursery","chief","humanity","hit","obligation","safety","throat","absence","coincide",
+                            "station","belong","enter","mosaic","straight","refuse","fastidious","commission","fairy","brainstorm","passage",
+                            "dribble","fill","graduate","fill","able","yard","confession","tower","chop","strong","dominant","crowd",
+                            "rehabilitation","advance","departure","quarter"};
+}
 
 Here's a text file of additional words, feel free to include and use it for the program:
 
