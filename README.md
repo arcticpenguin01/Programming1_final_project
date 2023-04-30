@@ -53,6 +53,108 @@ https://www.hangmanwords.com/how-to
 Developer's guide
 -----------------
 
-Project
+This project was coded in C++ and it consists of three functions:
+
+void hangman(), void playGame(), and the int main() functions.
+
+The playGame() function contains the logic of the game loop. In this function, a vector was used to generate a list of words of which random words was pulled, convert each character of that randomly chosen word to the underline character and then prompt the user to guess the letters of that word.
+
+The function looks like this:
+
+void playGame()
+{
+    int incorrectGuesses = 0;
+
+    vector<string> words = {"innovation", "stroll", "finger", "pan", "sleeve","run","frequency","justice","development","chimney","hobby","shelf",
+                            "challenge","pledge","tenant","nursery","chief","humanity","hit","obligation","safety","throat","absence","coincide",
+                            "station","belong","enter","mosaic","straight","refuse","fastidious","commission","fairy","brainstorm","passage",
+                            "dribble","fill","graduate","fill","able","yard","confession","tower","chop","strong","dominant","crowd",
+                            "rehabilitation","advance","departure","quarter"};
+
+    // Generate a random index
+    srand(time(nullptr));
+    string word = words[rand() % words.size()];
+    int lengthword = word.length();
+
+    // Create a string with underscores to represent the word
+    string wordGuessed(word.size(), '_');
+
+    // Start the game loop
+    int numGuesses = 0;
+    int maxGuesses = 7;
+
+    bool gameWon = false;
+
+    while (numGuesses < maxGuesses && !gameWon)
+    {
+        cout << "\nguess the word: ";
+        for (int i = 0; i < lengthword; i++)
+        {
+            if (wordGuessed[i] != '_')
+            {
+                cout << " " << wordGuessed[i] << " ";
+            }
+            else
+            {
+                cout << " _ ";
+            }
+        }
+
+        cout << "\n";
+        char guess;
+        cin >> guess;
+
+        // Check if the guess is correct
+        bool correct = false;
+        for (int i = 0; i < word.size(); i++)
+        {
+            if (word[i] == guess)
+            {
+                wordGuessed[i] = guess;
+                correct = true;
+            }
+        }
+
+        if (correct)
+        {
+            cout << "Good guess! The word looks like this: ";
+            for (int i = 0; i < lengthword; i++)
+            {
+                if (wordGuessed[i] != '_')
+                {
+                    cout << " " << wordGuessed[i] << " ";
+                }
+                else
+                {
+                    cout << " _ ";
+                }
+            }
+            cout << "\n";
+
+            if (wordGuessed == word)
+            {
+                gameWon = true;
+            }
+        }
+        else
+        {
+            cout << "Sorry, that letter is not in the word. You have " << maxGuesses - numGuesses - 1 << " guesses left." << endl;
+            numGuesses++;
+            incorrectGuesses++;
+            hangman(incorrectGuesses);
+        }
+    }
+
+    if (gameWon)
+    {
+        cout << "\nCongratulations, you guessed the word: " << word << endl;
+    }
+    else
+    {
+        cout << "\nSorry, you ran out of guesses. The word was: " << word << endl;
+    }
+}
+
+The 
 
 
