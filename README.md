@@ -49,6 +49,13 @@ This is the welcoming screen of the game and it gives you the rules and prompts 
 
 https://www.hangmanwords.com/how-to
 
+Playing the game
+-----------------
+The program prompts the user to guess the correct spelling of a word and gives the user a maximum of seven incorrect guesses to guess the word correctly. After each incorrect guess, the user will be notified how many guesses they have left. Below is an example of that feature.
+
+![Screenshot 2023-04-30 152240](https://user-images.githubusercontent.com/101565107/235372514-f2f85800-c558-4243-9857-8dedb64f0fdb.png)
+
+
 
 Developer's guide
 -----------------
@@ -155,6 +162,233 @@ void playGame()
     }
 }
 
-The 
+Hangman function
+-----------------
+This function draws the hangman each time the user makes an incorrect guess. It uses a switch case that uses the value of a variable called "incorrectguesses" whose value is updated everytime the user guesses a wrong character. If the user guesses incorrectly seve times, this function will print out the full hangman image and will print out a game over message along with it. The image was drawn using the R"() string method and was drawn using dash marks. Below is the function:
+
+void hangman(int incorrectGuesses)
+{
+    switch (incorrectGuesses)
+    {
+        case 1:
+            cout << R"(
+        /  \_______________________________________
+        |  |                                       |
+        |  |_______________________________________|
+        |  |
+        |  |
+        |  |
+        |  |
+        |  |
+        |  |
+        |  |
+        |  |
+        |  |
+        |  |
+        |  |
+        |  |
+        |  |
+        |  |
+        |__|________________________________________
+        )" << endl;
+        break;
 
 
+        case 2:
+            cout << R"(
+        /  \_______________________________________
+        |  |                   \                   |
+        |  |____________________\__________________|
+        |  |                    |
+        |  |                    |
+        |  |                    |
+        |  |                    |
+        |  |
+        |  |
+        |  |
+        |  |
+        |  |
+        |  |
+        |  |
+        |  |
+        |  |
+        |  |
+        |__|________________________________________
+        )" << endl;
+        break;
+
+        case 3:
+            cout << R"(
+        /  \_______________________________________
+        |  |                   \                   |
+        |  |____________________\__________________|
+        |  |                    |
+        |  |                    |
+        |  |                    |
+        |  |                 ___|___
+        |  |                / __  __\
+        |  |                \    _\ /
+        |  |                 \_____/
+        |  |
+        |  |
+        |  |
+        |  |
+        |  |
+        |  |
+        |  |
+        |__|________________________________________
+        )"<< endl;
+        break;
+
+        case 4:
+            cout << R"(
+        /  \_______________________________________
+        |  |                   \                   |
+        |  |____________________\__________________|
+        |  |                    |
+        |  |                 ___|___
+        |  |                / __  __\
+        |  |                \    _\ /
+        |  |                 \_____/
+        |  |                    |
+        |  |                    |
+        |  |                   /|
+        |  |                  / |
+        |  |                 /  |
+        |  |                    |
+        |  |                    |
+        |  |                    |
+        |  |
+        |  |
+        |__|________________________________________
+        )"<< endl;
+        break;
+
+        case 5:
+            cout << R"(
+        /  \_______________________________________
+        |  |                   \                   |
+        |  |____________________\__________________|
+        |  |                    |
+        |  |                 ___|___
+        |  |                / __  __\
+        |  |                \    _\ /
+        |  |                 \_____/
+        |  |                    |
+        |  |                    |
+        |  |                   /|
+        |  |                  / | \
+        |  |                 /  |  \
+        |  |                    |
+        |  |                    |
+        |  |                    |
+        |  |
+        |  |
+        |__|________________________________________
+        )"<< endl ;
+        break;
+
+        case 6:
+             cout << R"(
+        /  \_______________________________________
+        |  |                   \                   |
+        |  |____________________\__________________|
+        |  |                    |
+        |  |                 ___|___
+        |  |                / __  __\
+        |  |                \    _\ /
+        |  |                 \_____/
+        |  |                    |
+        |  |                    |
+        |  |                   /|
+        |  |                  / | \
+        |  |                 /  |  \
+        |  |                    |
+        |  |                    |
+        |  |                    |
+        |  |                   /
+        |  |                  /
+        |  |                 /
+        |  |
+        |__|________________________________________
+        )"<< endl;
+        break;
+
+         case 7:
+             cout << R"(
+        /  \_______________________________________
+        |  |                   \                   |
+        |  |____________________\__________________|
+        |  |                    |
+        |  |                 ___|___
+        |  |                / __  __\
+        |  |                \    _\ /
+        |  |                 \_____/
+        |  |                    |
+        |  |                    |
+        |  |                   /|
+        |  |                  / | \
+        |  |                 /  |  \
+        |  |                    |
+        |  |                    |
+        |  |                    |
+        |  |                   / \
+        |  |                  /   \
+        |  |                 /     \
+        |  |
+        |__|________________________________________
+
+
+        ********************************************
+        *                                          *
+        *               GAME OVER                  *
+        *            STICK MAN DEAD :(             *
+        *     STICK WIFE AND STICK CHILDREN SAD    *
+        *                                          *
+        ********************************************
+        )" << endl;
+        break;
+    }
+
+}
+
+Main function
+--------------
+
+The main function prints out an introduction/ welcoming screen to the user and calls the playGame function, the playGame function calls the hangman function in the event that the user makes an incorrect guess. The main function is shown below:
+
+int main()
+{
+
+    cout << R"(
+               *************************************************
+               *                                               *
+               *                                               *
+               *            WELCOME TO HANGMAN                 *
+               *                                               *
+               *    YOU WILL HAVE 7 GUESSES FOR EACH WORD      *
+               *                                               *
+               *      FAILURE TO GUESS THE WORD CORRECTLY      *
+               *                                               *
+               *          WILL RESULT IN THE MURDER            *
+               *                                               *
+               *          OF A INNOCENT STICKMAN               *
+               *                                               *
+               *        (He has a family of four btw)          *
+               *                                               *
+               *        HIS FATE RESTS IN YOUR HANDS           *
+               *                                               *
+               *                                               *
+               *                                               *
+               *************************************************
+
+            )";
+
+
+    playGame();
+
+
+    return 0;
+}
+
+Feel free to use this project as a template and add any features that you wish to add.
